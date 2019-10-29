@@ -10,6 +10,8 @@ pytest-bdd = "*"
 
 [packages]
 black = "*"
+flask = "*"
+flask-restful = "*"
 
 [requires]
 python_version = "3.7"
