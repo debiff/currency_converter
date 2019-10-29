@@ -9,7 +9,8 @@ def create_app():
     api = Api(app)
 
     # Binding routes
-    api.add_resource(Convert, "/converter/<string:src_currency>/<string:dest_currency>")
+    api.add_resource(Convert, "/convert/<string:src_currency>/<string:dest_currency>")
+
     return app
 
 
