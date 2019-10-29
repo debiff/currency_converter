@@ -12,9 +12,7 @@ class Convert(Resource):
     """
 
     def __init__(self):
-        super(Convert, self).__init__()
         self.reqparse = reqparse.RequestParser()
-
         self.reqparse.add_argument(
             "amount",
             type=float,
@@ -25,6 +23,7 @@ class Convert(Resource):
         self.reqparse.add_argument(
             "reference_date", type=valid_date, default="", location="args"
         )
+        super(Convert, self).__init__()
 
     def get(self, src_currency: str, dest_currency: str) -> Tuple[Dict, int]:
         """
@@ -34,7 +33,7 @@ class Convert(Resource):
 
         :return:
         """
-        args = self.reqparse.parse_args()
+        args = self.reqparse.parse_args(strict=True)
 
         amount = args["amount"]
         reference_date = args["reference_date"]

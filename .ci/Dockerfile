@@ -10,5 +10,5 @@ COPY Pipfile.lock .
 RUN pipenv install --system --deploy --ignore-pipfile
 
 COPY src .
-
+COPY .ci .
 ENTRYPOINT ["entrypoint.sh"]
