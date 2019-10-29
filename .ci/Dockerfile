@@ -9,6 +9,12 @@ COPY Pipfile.lock .
 
 RUN pipenv install --system --deploy --ignore-pipfile
 
-COPY src .
+COPY src ./src
+COPY .ci/entrypoint.sh .
 
-ENTRYPOINT ["entrypoint.sh"]
+ENV PYTHONPATH /app
+
+EXPOSE 5000
+
+ENTRYPOINT ["sh","entrypoint.sh"]
+
