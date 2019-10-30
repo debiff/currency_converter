@@ -37,7 +37,6 @@ class Convert(Resource):
 
         amount = args["amount"]
         reference_date = args["reference_date"]
-
         if amount < 0:
             return {"message": "Amount must be greater than 0"}, 400
 
