@@ -1,12 +1,13 @@
 import pytest
 from pytest_bdd import scenarios, given, then
 
-from src.app import create_app
+from src.app import create_app, before_first_request_func
 
 
 @pytest.fixture
 def app():
     _app = create_app()
+    before_first_request_func()
     return _app
 
 
@@ -27,7 +28,7 @@ scenarios("../features/convert.feature", example_converters=CONVERTERS)
 )
 def converter_response(app, client, amount, src_currency, dst_currency, reference_date):
     return client.get(
-        "/converter/{}/{}?amount={}&reference_date={}".format(
+        "/convert/{}/{}?amount={}&reference_date={}".format(
             src_currency, dst_currency, amount, reference_date
         )
     )
