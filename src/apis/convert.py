@@ -11,7 +11,7 @@ class Convert(Resource):
     Manage the conversion between a currency and another with respect to the euro's value.
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.reqparse = reqparse.RequestParser()
         self.reqparse.add_argument(
             "amount",

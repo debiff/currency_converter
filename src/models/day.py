@@ -15,7 +15,7 @@ class Currency(EmbeddedDocument):
     amount = FloatField()
 
     @classmethod
-    def create(cls, name, amount):  # TODO: typing
+    def create(cls, name: str, amount: float) -> "Currency":
         obj = cls()
 
         obj.name = name
@@ -31,7 +31,7 @@ class Day(Document):
     currencies = ListField(EmbeddedDocumentField(Currency))
 
     @classmethod
-    def create(cls, date, currencies):  # TODO: typing
+    def create(cls, date, currencies) -> "Day":
         obj = cls()
 
         obj.reference_date = date
