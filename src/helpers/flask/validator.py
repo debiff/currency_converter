@@ -1,13 +1,13 @@
 from datetime import datetime
 
 
-def valid_date(date: str) -> datetime:
+def valid_date(reference_date: str) -> datetime:
     """
 
-    :param date:
+    :param reference_date:
     :return:
     """
-    date = datetime.strptime(date, "%Y-%m-%d")
+    date = datetime.strptime(reference_date, "%Y-%m-%d")
 
     if date.weekday() is 5 or date.weekday() is 6:
         raise ValueError("The date must be a weekday")

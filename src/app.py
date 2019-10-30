@@ -7,7 +7,7 @@ from src.helpers.mongo import connection
 from src.managers import ecb_manager
 
 
-def create_app():
+def create_app() -> Flask:
     app = Flask(__name__)
     api = Api(app)
     # Binding routes
@@ -20,7 +20,7 @@ app = create_app()
 
 
 @app.before_first_request
-def before_first_request_func():
+def before_first_request_func() -> None:
     connection.register()
     ecb_manager.store_currencies()
 
