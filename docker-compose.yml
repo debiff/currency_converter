@@ -1,0 +1,26 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+    - "5000:5000"
+    depends_on:
+    - db
+    networks:
+      - backend
+    volumes:
+      - appdata:/app
+  db:
+    image: mongo:4.0.9
+    networks:
+      - backend
+    volumes:
+      - mongodbdata:/data/db
+networks:
+  backend:
+
+volumes:
+  mongodbdata:
+    driver: local
+  appdata:
+    driver: local
