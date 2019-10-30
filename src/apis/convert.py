@@ -11,7 +11,7 @@ class Convert(Resource):
     Manage the conversion between a currency and another with respect to the euro's value.
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.reqparse = reqparse.RequestParser()
         self.reqparse.add_argument(
             "amount",
@@ -37,7 +37,6 @@ class Convert(Resource):
 
         amount = args["amount"]
         reference_date = args["reference_date"]
-
         if amount < 0:
             return {"message": "Amount must be greater than 0"}, 400
 
