@@ -4,6 +4,8 @@ from flask_restful import Api
 from src.apis.convert import Convert
 from src.helpers.mongo import connection
 
+from src.managers import ecb_manager
+
 
 def create_app():
     app = Flask(__name__)
@@ -18,8 +20,9 @@ app = create_app()
 
 
 @app.before_first_request
-def store_currencies():
+def before_first_request_func():
     connection.register()
+    ecb_manager.store_currencies()
 
 
 if __name__ == "__main__":
