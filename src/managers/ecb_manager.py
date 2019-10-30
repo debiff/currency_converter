@@ -18,7 +18,7 @@ def currencies_per_day(reference_date: datetime) -> Dict:
     return currencies
 
 
-def store_currencies():
+def store_currencies() -> None:
     rates = requests.get(
         "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-hist-90d.xml"
     )
