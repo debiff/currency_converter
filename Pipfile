@@ -13,6 +13,7 @@ black = "*"
 flask = "*"
 flask-restful = "*"
 requests = "*"
+mongoengine = "*"
 
 [requires]
 python_version = "3.7"

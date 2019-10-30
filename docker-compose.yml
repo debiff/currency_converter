@@ -12,6 +12,8 @@ services:
       - appdata:/app
   db:
     image: mongo:4.0.9
+    ports:
+      - "27018:27017"
     networks:
       - backend
     volumes:
