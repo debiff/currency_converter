@@ -8,7 +8,6 @@ from src.helpers.mongo import connection
 def create_app():
     app = Flask(__name__)
     api = Api(app)
-
     # Binding routes
     api.add_resource(Convert, "/convert/<string:src_currency>/<string:dest_currency>")
 
